@@ -1,5 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block home %}
-<h1>Home<h1>
+{% include "home/popular_course.html" %}
 {% endblock home %}
+{% include "home/video_area.html" %}
+{% include "home/other_feature" %}
+{% block home_banner %}
+{% include "home/testimonials_area" %}
+{% include "home/registration_area" %}
+{% include "home/start_blog" %}
+<div class="offset-lg-2 col-lg-5 col-md-12 home-banner-right">
+    <img class="img-fluid" src={% static "img/header-img.png" %} alt="" />
+</div>
+{% endblock home_banner %}
+
+{% block "link_nav" %}{% endblock "link_nav" %}
