@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.db.models.signals import pre_save
 from django.dispatch.dispatcher import receiver
 from django.utils.deconstruct import deconstructible
+from django.utils.html import mark_safe
 
 
 @deconstructible
@@ -24,6 +25,11 @@ class User(AbstractUser):
         null=True,
         verbose_name="User",
     )
+
+    def show_image(self):
+        return mark_safe('<img src="{}" width="50px" />'.format("https://s11.radikal.ru/i183/1701/74/6d46935066e4.jpg"))
+    show_image.short_description = "Avatar"
+    show_image.allow_tags = True
 
     def send_sms(self, message):
         ...
