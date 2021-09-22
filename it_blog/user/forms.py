@@ -5,7 +5,7 @@ from django.forms.widgets import TextInput
 
 class UserSignIn(forms.Form):
     username = forms.CharField(
-        label="User name"
+        label="User name",
         widget=forms.TextInput(
             attrs={
                 "id": "name",
